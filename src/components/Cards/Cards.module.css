@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    margin: 50px;
+}
+
+.card_infected,
+.card_recovered,
+.card_deaths {
+    border: 2px lightslategray solid;
+    margin: 0 2% !important;
+    border-radius: 10px;
+}
+
+.card_infected {
+ border-bottom: 10px solid rgba(0, 0, 255, 0.5);
+}
+.card_recovered {
+    border-bottom: 10px solid rgba(0, 255, 0, 0.5);
+}
+.card_deaths {
+    border-bottom: 10px solid rgba(255, 0, 0, 0.5);
+}
+
