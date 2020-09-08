@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, CardContent, Typography, Grid, StylesProvider } from '@material-ui/core';
 import CountUp from 'react-countup';
+import cx from 'classnames';
 
 import styles from './Cards.module.css';
 
@@ -12,9 +13,8 @@ const Cards = ({data: {confirmed, recovered, deaths, lastUpdate}}) => {
 
     return (
         <div className={styles.container}>
-            <div className={styles.card_infected}>
-            <grid container spacing={3} justify="center">
-                <grid item component={Card} xs={12} md={3} >
+            <Grid container spacing={3} justify="center">
+                <Grid item component={Card} xs={12} md={3} className={styles.card, styles.infected}>
                     <CardContent>
                         <Typography color="textSecondary" gutterBottom>Infected</Typography>
                         <Typography variant="h5">
@@ -26,14 +26,12 @@ const Cards = ({data: {confirmed, recovered, deaths, lastUpdate}}) => {
                             />
                         </Typography>
                         <Typography color="textSecondary">{new Date(lastUpdate).toDateString()}</Typography>
-                        <Typography variant="body2">Number of active cases of COVID-19</Typography>
+                        <Typography variant="body2">Number of confirmed COVID-19 cases</Typography>
                     </CardContent>
-                </grid>
-            </grid>
-            </div>
-            <div className={styles.card_recovered}>
-            <grid item component={Card} xs={12} md={3}>
-                <grid item component={Card}>
+                </Grid>
+            
+
+            <Grid item component={Card} xs={12} md={3} className={styles.card, styles.recovered}>
                     <CardContent>
                         <Typography color="textSecondary" gutterBottom>Recovered</Typography>
                         <Typography variant="h5"><CountUp
@@ -45,12 +43,9 @@ const Cards = ({data: {confirmed, recovered, deaths, lastUpdate}}) => {
                         <Typography color="textSecondary">{new Date(lastUpdate).toDateString()}</Typography>
                         <Typography variant="body2">Number of recoveries from COVID-19</Typography>
                     </CardContent>
-                </grid>
-            </grid>
-            </div>
-            <div className={styles.card_deaths}>
-            <grid container spacing={3} justify="center">
-            <grid item component={Card} xs={12} md={3}>
+                </Grid>
+
+            <Grid item component={Card} xs={12} md={3} className={styles.card, styles.deaths}>
                     <CardContent>
                         <Typography color="textSecondary" gutterBottom>Deaths</Typography>
                         <Typography variant="h5"><CountUp
@@ -62,10 +57,9 @@ const Cards = ({data: {confirmed, recovered, deaths, lastUpdate}}) => {
                         <Typography color="textSecondary">{new Date(lastUpdate).toDateString()}</Typography>
                         <Typography variant="body2">Number of deaths related to COVID-19</Typography>
                     </CardContent>
-                </grid>
-            
-            </grid>
-            </div>
+                </Grid>
+                </Grid>
+
         </div>
     )
 }
